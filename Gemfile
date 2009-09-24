@@ -3,6 +3,7 @@ gem "rails", "2.3.4"
 gem "rack", "1.0.0"
 gem "will_paginate", "2.2.2"
 gem "ruby-openid", "2.1.7"
+gem "mysql"
 
 # Testing
 gem "rspec", :only => :testing
