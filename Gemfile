@@ -5,7 +5,8 @@ gem "will_paginate", "2.2.2"
 gem "ruby-openid", "2.1.7"
 
 # Testing
-gem "rspec", "1.2.8", :only => :testing
+gem "rspec", :only => :testing
+gem "rspec-rails", :only => :testing
 
 # Sources
 source "http://gems.github.com"
