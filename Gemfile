@@ -7,6 +7,8 @@ gem "ruby-openid", "2.1.7"
 # Testing
 gem "rspec", :only => :testing
 gem "rspec-rails", :only => :testing
+gem "webrat", :only => :testing
+gem "cucumber", :only => :testing
 
 # Sources
 source "http://gems.github.com"
