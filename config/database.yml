@@ -3,9 +3,9 @@ development:
   encoding: utf8
   database: simpleclouding_development
   username: root
-  password: 
-  socket: /tmp/mysql.sock
+  password:
   encoding: utf8
+  port: 3309
 
 test:
   adapter: mysql
@@ -13,8 +13,8 @@ test:
   database: simpleclouding_test
   username: root
   password: 
-  socket: /tmp/mysql.sock 
   encoding: utf8
+  port: 3309
 
 production:
   development

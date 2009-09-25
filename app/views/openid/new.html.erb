@@ -1,7 +1,12 @@
+<h1>Login page</h1>
+      
 <% if flash[:error] %>
 <p><%= flash[:error] %></p>
 <% end %>
-
-<% form_tag :controller => :openid, :action => :create, :name => 'login_form' do %>
-  <%= text_field_tag 'openid_identifier' %> <button id="login_button">Login</button>
-<% end %>
+<div id="login">
+  <% form_tag :controller => :openid, :action => :create, :name => 'login_form' do %>
+    <label for="openid_identifier">OpenID identifier</label> 
+    <%= text_field_tag 'openid_identifier' %> <button id="login_button">Login</button>
+  <% end %>
+</div>
+   

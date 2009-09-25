@@ -2,3 +2,5 @@ vendor/gems
 bin/*
 log/*
 tmp/*
+.eprj
+
