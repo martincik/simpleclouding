@@ -4,6 +4,7 @@ gem "rack", "1.0.0"
 gem "will_paginate", "2.2.2"
 gem "ruby-openid", "2.1.7"
 gem "mysql"
+gem "right_aws", "1.10.0"
 
 # Development
 gem "ruby-debug"

@@ -16,6 +16,12 @@ module NavigationHelpers
     
     when /the OpenID authentication page/
       '/openid/create'
+
+    when /the cloud listing page/
+      clouds_url
+    
+    when /the new cloud page/
+      new_cloud_url
     
     # Add more mappings here.
     # Here is a more fancy example:

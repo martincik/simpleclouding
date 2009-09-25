@@ -1,0 +1,63 @@
+<%= context_links(link_to('Clouds', clouds_url), 'New cloud') %>
+<br /><br />
+
+<h1>New cloud</h1>
+<br />
+
+<%= error_messages_for :cloud %>
+
+<% form_for(:cloud, @cloud, :url => { :action => :create }, :html => { :class => 'common-form' } ) do |f| %>
+  
+  <table id="new-cloud" cellpadding="0" cellspacing="0">
+  <tbody>
+
+    <tr>
+    	<th><label for="cloud_name" class="mandatory">Name</label></th>
+      <td><%= f.text_field :name, :style => 'font-size: 14pt;' %></td>
+    	<td class="helper" rowspan="3">
+        All fields marked with red <strong style="color: #f00;">color</strong> are mandatory.
+      </td>
+    </tr>
+
+    <tr>
+      <th><label for="cloud_description">Description</label></th>
+      <td><%= f.text_area :description, :rows => 6 %></td>
+    </tr>
+    
+    <tr>
+      <th><label for="cloud_origin">Origin</label></th>
+      <td><%= f.select :origin, Cloud::ORIGINS, { :selected => (@cloud.origin || Cloud::ORIGIN['AMAZON']) } %></td>
+    </tr>
+    
+    <tfoot>
+    <tr>
+    	<th><label for="cloud_access_key" class="mandatory">Access Key</label></th>
+      <td><%= f.text_field :access_key, :style => 'font-size: 14pt;' %></td>
+      <td class="helper" rowspan="2">
+        Please refer to your Amazon account to get these keys.
+      </td>
+    </tr>
+    
+    <tr>
+    	<th><label for="cloud_secret_access_key" class="mandatory">Secret Access Key</label></th>
+      <td><%= f.text_field :secret_access_key, :style => 'font-size: 14pt;' %></td>
+    </tr>
+    </tfoot>
+
+  </tbody>
+  </table>
+  
+  <%= f.submit "Create cloud", :class => 'submit' %> or <%= link_to 'cancel', clouds_url %>
+<% end %>
+
+<script>
+ $(document).ready(function(){
+    $("select#cloud_origin").change(function () {
+      if ($("select#cloud_origin option:selected").text() == '<%= Cloud::ORIGIN['AMAZON'] %>') {
+        $('table#new-cloud tfoot').show()
+      } else {
+        $('table#new-cloud tfoot').hide()
+      }
+    }).change();
+ });
+</script>

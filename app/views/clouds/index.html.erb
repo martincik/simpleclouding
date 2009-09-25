@@ -1,0 +1,22 @@
+
+<div style="padding-bottom: 10px;">
+<span class="button"><%= link_to 'Add cloud', new_cloud_url, :class => 'add' %></span>
+</div>
+
+<% if @clouds.empty? -%>
+<p class="no-record" style="margin-top: 10px;">
+  No clouds available! You can create new one by clicking on <%= link_to 'Add cloud', new_cloud_url %> link.
+</p>
+<% else -%>
+  <div id="clouds" class="collection">
+  <% @clouds.each do |cloud| -%>  
+    <div class="cloud item<%= cycle(' odd','') -%>">
+      <h1><%= link_to h(cloud.name), cloud_path(cloud) %><%= link_to 'Edit', edit_cloud_url(cloud), :class => 'edit' %><%= link_to 'Delete', cloud_url(cloud), :method => :delete, :class => 'destroy', :confirm => "Are you sure you want to delete cloud - #{cloud.name}?" %></h1>
+      <em>Created at <%= cloud.created_at.to_s(:long) %>, last updated at <%= cloud.updated_at.to_s(:long) %></em>
+      <p>
+        <%= shorten h(cloud.description), 250 %>
+      </p>
+    </div>
+  <% end -%>
+  </div>
+<% end -%>

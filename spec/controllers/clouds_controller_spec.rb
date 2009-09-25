@@ -1,10 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe DashboardController do
+describe CloudsController do
 
   #Delete this example and add some real ones
-  it "renders 'hello' on acton index" do
-    get :index
+  it "should use CloudsController" do
+    controller.should be_an_instance_of(CloudsController)
   end
 
 end

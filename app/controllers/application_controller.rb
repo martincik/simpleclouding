@@ -4,12 +4,28 @@
 class ApplicationController < ActionController::Base
 
   helper :all # include all helpers, all the time
-  protect_from_forgery :secret => 'efa2779643d19108b00af040b3c2befb'
+  protect_from_forgery
   filter_parameter_logging :secret_access_key
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   
   # This is for navigation purpose
   attr_reader :tab_name, :subtab_name
+  
+  def login_required
+    authorized? || access_denied
+  end
+  
+  def authorized?
+    !session[:identity_url].nil?
+  end
+
+  def access_denied
+    respond_to do |format|
+      format.html do
+        redirect_to openid_login_path
+      end
+    end
+  end
   
   protected
   

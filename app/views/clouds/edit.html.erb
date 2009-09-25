@@ -1,0 +1,51 @@
+<%= context_links(link_to('Clouds', clouds_url), link_to(@cloud.name, cloud_url(@cloud)), 'Edit cloud') %>
+<br /><br />
+
+<h1>Edit cloud</h1>
+<br />
+
+<%= error_messages_for :cloud %>
+
+<% form_for(:cloud, @cloud, :url => cloud_path(@cloud), :html => { :method => :put, :class => 'common-form' } ) do |f| %>
+  
+  <table cellpadding="0" cellspacing="0">
+  <tbody>
+
+    <tr>
+    	<th><label for="cloud_name" class="mandatory">Name</label></th>
+      <td><%= f.text_field :name, :style => 'font-size: 14pt;' %></td>
+    	<td class="helper" rowspan="2">
+        All fields marked with red <strong style="color: #f00;">color</strong> are mandatory.
+      </td>
+    </tr>
+
+    <tr>
+      <th><label for="cloud_description">Description</label></th>
+      <td><%= f.text_area :description, :rows => 6 %></td>
+    </tr>
+    
+    <% if @cloud.support_access_key? -%>
+    <tr>
+    	<th><label for="cloud_access_key" class="mandatory">Access Key</label></th>
+      <td><%= f.text_field :access_key, :style => 'font-size: 14pt;' %></td>
+      <td class="helper" rowspan="2">
+        Please refer to your Amazon account to get these keys.
+      </td>
+    </tr>
+    
+    <tr>
+    	<th><label for="cloud_secret_access_key" class="mandatory">Secret Access Key</label></th>
+      <td>
+        <%= f.text_field :secret_access_key, :value => '', :style => 'font-size: 14pt;' %>
+        <span class="help">Secret access key is for security reasons not visible!<br />
+          If you want to change current value, paste new value in this text box.
+        </span>
+      </td>
+    </tr>
+    <% end -%>
+
+  </tbody>
+  </table>
+  
+  <%= f.submit "Update cloud", :class => 'submit' %> or <%= link_to 'cancel', clouds_url %>
+<% end %>

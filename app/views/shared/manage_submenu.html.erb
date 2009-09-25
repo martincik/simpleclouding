@@ -1,8 +1,5 @@
 <div id="submenu">
   <ul>
-    <li<%= ' class="selected"' if @subtab_name == 'projects' %>><%= link_to 'Projects', home_url %></li>
-    <li<%= ' class="selected"' if @subtab_name == 'clusters' %>><%= link_to 'Clusters', home_url %></li>
-    <li<%= ' class="selected"' if @subtab_name == 'servers' %>><%= link_to 'Servers', home_url %></li>
-    <li style="padding-left: 20px;"<%= ' class="selected"' if @subtab_name == 'clouds' %>><%= link_to 'Clouds', home_url %></li>
+    <li <%= ' class="selected"' if @subtab_name == 'clouds' %>><%= link_to 'Clouds', home_url %></li>
   </ul>
 </div>
