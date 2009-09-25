@@ -5,6 +5,7 @@ gem "will_paginate", "2.2.2"
 gem "ruby-openid", "2.1.7"
 gem "mysql"
 gem "right_aws", "1.10.0"
+gem "rick-linode"
 
 # Development
 gem "ruby-debug"

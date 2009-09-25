@@ -35,3 +35,4 @@ Rails::Initializer.run do |config|
 end
 
 require 'right_aws'
+require 'linode'
