@@ -5,6 +5,9 @@ gem "will_paginate", "2.2.2"
 gem "ruby-openid", "2.1.7"
 gem "mysql"
 
+# Development
+gem "ruby-debug"
+
 # Testing
 gem "rspec", :only => :testing
 gem "rspec-rails", :only => :testing

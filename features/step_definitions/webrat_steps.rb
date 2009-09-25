@@ -179,6 +179,13 @@ Then /^I should be on (.+)$/ do |page_name|
   URI.parse(current_url).path.should == path_to(page_name)
 end
 
+Then /^I will be redirected to (.+)$/ do |r_to|
+  require 'ruby-debug'
+  debugger
+  
+  redirected_to.should == r_to
+end
+
 Then /^show me the page$/ do
   save_and_open_page
 end

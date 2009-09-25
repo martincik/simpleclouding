@@ -10,6 +10,12 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
+      
+    when /the login page/
+      '/login'
+    
+    when /the OpenID authentication page/
+      '/openid/create'
     
     # Add more mappings here.
     # Here is a more fancy example:
