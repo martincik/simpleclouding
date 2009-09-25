@@ -1,6 +1,6 @@
 class CloudsController < ApplicationController
   
-  #before_filter :login_required
+  before_filter :login_required
   before_filter :setup_tabs
 
   def index
