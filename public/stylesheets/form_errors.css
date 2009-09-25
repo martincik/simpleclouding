@@ -1,0 +1,11 @@
+#errorExplanation h2 {
+  color: #f00;
+}
+
+#errorExplanation p {
+  padding: 10px 0 0 10px;  
+}
+
+#errorExplanation ul {
+  padding-left: 30px;
+}

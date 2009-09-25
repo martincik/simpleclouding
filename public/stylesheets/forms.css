@@ -1,0 +1,138 @@
+form.common-form {
+  padding: 0;
+  margin: 0;
+}
+
+form.common-form div.fieldWithErrors input {
+  border: 2px solid #f00;
+}
+form.common-form div.fieldWithErrors textarea {
+  border: 2px solid #f00;
+}
+
+form.common-form table {
+  padding: 0;
+  border: 2px solid #ddd;
+  background: #f8f8f8; 
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+}
+
+form.common-form table tbody {
+	padding: 0; margin: 0;	
+}
+
+form.common-form tr.delimiter th {
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+
+form.common-form tr.delimiter td {
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+
+form.common-form td.time select {
+	width: 4.5em;
+}
+
+form.common-form table th {
+  border-right: .1em solid #ddd;
+	font-weight: bold;
+	padding: .5em;
+	text-align: right;
+	vertical-align: top;
+	width: 20%;
+}
+
+form.common-form table th span.help {
+  color: #888;
+	display: block;
+	font-size: .9em;
+	font-style: italic;
+	font-weight: normal; 
+}
+
+form.common-form table td {
+  padding-left: .8em;
+	padding-bottom: .8em;
+	padding-top: .8em;
+	vertical-align: top; 
+}
+
+form.common-form label {
+  font-weight: bold;
+  line-height: 1.6em;
+}
+
+form.common-form label.mandatory {
+  color: #f00;
+}
+
+form.common-form table td span.help {
+  color: #888;
+	display: block;
+	font-size: .9em;
+	font-style: italic;
+	font-weight: normal;
+	margin-top: .2em;
+	clear: both;
+}
+
+form.common-form table td.helper {
+  width: 18em;
+  border-left: .1em solid #ddd;
+  font-style: normal;
+  font-size: 8pt;
+  padding-right: .5em;
+	vertical-align: top;
+	width: 20%;
+} 
+
+form.common-form input, 
+form.common-form select, 
+form.common-form textarea {
+  margin: 0;
+  width: 95%;
+  height: auto;
+}
+
+form.common-form td.date select {
+  margin: 0;
+  width: 5em;
+  height: auto;
+}
+
+form.common-form input.submit {
+  margin-top: 1em;
+  padding: .3em;
+  width: auto;
+}
+
+form.common-form a {
+	display: inline;
+}
+
+form.common-form input[type="checkbox"], 
+form.common-form input[type="image"], 
+form.common-form input[type="submit"], 
+form.common-form input[type="radio"], 
+form.common-form .normal {
+	width: auto;
+} 
+
+form.common-form input.datefield,
+form.common-form select.datefield {
+  margin: 0; padding: 0;
+  width: 7em;
+  height: auto;
+} 
+
+form.common-form input.datetimefield,
+form.common-form select.datetimefield {
+  margin: 0; padding: 0;
+  width: 10em;
+  height: auto;
+}

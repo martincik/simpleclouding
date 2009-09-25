@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" debug="true">
+<head>
+  <title>SimpleClouding.com - Your simple way to manage clouds</title>
+  
+  <meta http-equiv="content-type" content="text/xhtml; charset=utf-8" />
+  <meta http-equiv="imagetoolbar" content="no" />
+  <meta name="distribution" content="all" />
+  <meta name="robots" content="all" />  
+  <meta name="resource-type" content="document" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  
+  <%= stylesheet_link_tag 'all', :cache => 'simpleclouding' %>
+  
+  <script src="/javascripts/jquery.js" type="text/javascript"></script>
+  <script src="/javascripts/jquery-ui.js" type="text/javascript"></script>
+ 
+  <script src="/javascripts/application.js" type="text/javascript"></script>
+</head>
+
+<body id="simpleclouding">
+  
+  <div id="container">
+  
+    <div id="topbar" class="clearfix">
+      <div id="info">
+        SimpleClouding.com - Client name
+      </div>
+      <div id="account-info">
+        <a href="#">Account</a>&nbsp;|&nbsp;
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+  
+    <div id="content">
+  
+      <div id="main">
+  
+        <div id="tabs">
+          <ul>
+            <li><a href="#" title="Dashboard">Dashboard</a></li>
+            <li<%= ' class="selected"' if @tab_name == 'manage' %>><%= link_to 'Manage', home_url %></li>
+            <li><a href="#" title="Design">Design</a></li>
+          </ul>
+        </div>
+      
+        <%= render_submenu(@controller) %>
+
+        <div id="main-content" style="min-height: 300px">
+          <%= yield %>
+        </div>
+  
+      </div>
+    
+      <div id="sidebar">
+        <%= render_sidebar(@controller) %>
+      </div>
+
+    </div>
+  
+  </div><!-- container -->
+  
+</body>
+</html>

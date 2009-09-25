@@ -1,0 +1,40 @@
+#submenu {
+  -moz-border-radius-topright: 4px;
+  background: #4A7B6F;
+  padding: 10px 10px;
+  padding-top: 20px;
+  margin: 0;
+}
+
+#submenu a {
+  color: #fff;
+}
+
+#submenu ul {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+#submenu li {
+  display:inline;
+  margin:0;
+  padding:0;
+  padding-right: 5px;
+}
+
+#submenu li a {
+  padding: 4px 15px;
+  background: #478F7D;
+  color: #efefef;
+  text-decoration: none;
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+}
+
+#submenu li a:hover, #submenu li.selected a {
+  background: #eee;
+  color: #111;
+}

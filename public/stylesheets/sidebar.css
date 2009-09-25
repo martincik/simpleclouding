@@ -1,0 +1,21 @@
+#sidebar .box {
+  min-height: 100px;
+}
+
+#sidebar .box h1 {
+  padding: 10px;
+  margin: 0;
+  font-size: 8pt;
+  font-weight: bold;
+  background: #EEEEE7;
+  border-bottom: 1px solid #DEDEDE;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-topright: 4px;
+}
+
+#sidebar .box p {
+  padding: 10px;
+  background: #fff;
+  -moz-border-radius-bottomleft: 4px;
+  -moz-border-radius-bottomright: 4px;
+}

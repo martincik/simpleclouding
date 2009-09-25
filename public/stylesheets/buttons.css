@@ -1,0 +1,10 @@
+
+.button {
+  border: 1px solid #ddd;
+  background: #e8e8e8 url(../images/submit_button.gif) top left repeat-x;
+  padding: 5px 15px 5px 13px;
+  -moz-border-radius-topleft: 15px;
+  -moz-border-radius-topright: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  -moz-border-radius-bottomright: 15px;
+}

@@ -1,0 +1,149 @@
+/* Content tables */
+
+table.common-table {
+  vertical-align: top;
+  margin-top: 1em;
+}
+
+table.common-table th {
+  text-align: left;
+  padding: .5em .5em .2em .5em;
+  background: #BFDFFF;
+  color: #555;
+  border-bottom: 1px solid #59809F;
+}
+
+table.common-table th a, table.common-table th a:hover {
+  color: #555;
+}
+
+table.common-table th.nowrap {
+  white-space: nowrap;
+}
+
+table.common-table td {
+  text-align: left;
+  padding: 0 1em 0 .5em;
+  border-bottom: 1px solid #efefef;
+  line-height: 2em;
+  vertical-align: top;
+}
+
+table.common-table td.nowrap {
+  white-space: nowrap;
+}
+
+table.common-table td a:link, table.common-table td a:visited {
+  color: #03c;
+}
+
+table.common-table td a.deleted:link, table.common-table td a.deleted:visited {
+  color: #888;
+  font-style: italic;
+}
+
+table.common-table td a.canceled:link, table.common-table td a.canceled:visited {
+	font-size: 6pt;
+	text-transform: capitalize;
+	text-decoration: none;
+	padding: 2px 3px;
+	background: #222;
+	color: #fff;
+	margin-left: 1em;
+}
+
+table.common-table td a.special_request:link, table.common-table td a.special_request:visited {
+	font-size: 6pt;
+	text-transform: capitalize;
+	text-decoration: none;
+	padding: 2px 3px;
+	background: #d00;
+	color: #fff;
+	margin-left: 1em;
+}
+
+table.common-table tr:hover {
+  background-color: #ffd;
+}
+
+table.common-table tr.more-space {
+  vertical-align: middle;
+  border: 2px solid #ddd;
+  background: #f3f3f3;
+}
+
+table.common-table tr.more-space td {
+  vertical-align: middle;
+  line-height: 3em;
+  border-bottom: 2px solid #ddd;
+}
+
+table.common-table td.actions {
+  width: .5em;
+}
+
+table.common-table-red th {
+  background: #fdc;
+  border-bottom: 1px solid #fa6;
+}
+
+table.common-table-grey th {
+  background: #e1e1e1;
+  border-bottom: 1px solid #333;
+}
+
+table.common-table .filter th,
+table.common-table .filter td {
+  background: #E7E7E7;
+  padding: .4em 1em .2em 1em;
+  border: none;
+}
+
+table.common-table .filter-delimiter th,
+table.common-table .filter-delimiter td {
+	border-top: 2px solid #999; 
+}
+
+table.common-table select {
+  margin: 0;
+  width: auto;
+  height: auto;
+}
+
+/* Show tables */
+
+table.show-table {
+  border-spacing: 0;
+  border: 2px solid #ddd;
+}
+
+table.show-table th {
+  width: 20%;
+  font-weight: bold;
+  text-align: right;
+  vertical-align: top;
+  color: #555;
+  padding: .4em .5em;
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #fff;
+}
+
+table.show-table th span.help {
+  color: #888;
+	display: block;
+	font-size: .9em;
+	font-style: italic;
+	font-weight: normal; 
+}
+
+table.show-table td {
+  width: 20em;
+  font-size: 10pt;
+  line-height: 1.2em;
+  vertical-align: top;
+  border-left: .05em solid #ddd;
+  text-align: left;
+  padding: .4em .5em; 
+  color: #444;
+	border-bottom: 1px solid #f2f2f2;
+}

@@ -1,0 +1,17 @@
+a.add, a.add:hover, a.add:visited {
+  padding: 0 0 7px 20px;
+  background: url(/images/icons/fugue/plus_circle.png) top left no-repeat;
+  text-decoration: none;
+}
+
+a.destroy, a.destroy:hover, a.destroy:visited {
+  padding: 0 0 7px 20px;
+  background: url(/images/icons/fugue/minus_circle.png) top left no-repeat;
+  text-decoration: none;
+}
+
+a.download, a.download:hover, a.download:visited {
+  padding: 0 0 7px 20px;
+  background: url(/images/icons/fugue/key__arrow.png) top left no-repeat;
+  text-decoration: none;
+}

@@ -1,0 +1,18 @@
+@import url('common.css');
+@import url('simpleclouding.css');
+@import url('tabs.css');
+@import url('submenu.css');
+@import url('sidebar.css');
+
+@import url('forms.css');
+@import url('form_errors.css');
+@import url('collections.css');
+@import url('buttons.css');
+@import url('table.css');
+
+@import url('show.css');
+@import url('projects.css');
+@import url('clusters.css');
+@import url('icons.css');
+
+@import url('cloud_aws.css');

@@ -1,0 +1,57 @@
+#simpleclouding {
+  background: #9EAEB3;
+}
+
+#container {
+  margin: 0 auto;
+  text-align: left;
+  min-width: 950px;
+}
+
+#topbar {
+  background: #242E35;
+  color: #fff;
+  padding: 20px;
+  margin: 0;
+}
+
+#info {
+  float: left;
+  width: 70%;
+}
+
+#account-info {
+  float: right;
+  width: 30%;
+  text-align: right;
+}
+
+#topbar a, #topbar a:hover {
+  color: #bbb;
+}
+
+#content {
+  padding: 20px;
+  margin: 0;
+}
+
+#main {
+  float: left;
+  background: transparent;
+  margin: 0;
+  width: 78%;
+}
+
+#main-content {
+  -moz-border-radius-bottomleft: 4px;
+  -moz-border-radius-bottomright: 4px;
+  margin: 0;
+  padding: 20px;
+  background: #fff;
+}
+
+#sidebar {
+  float: right;
+  width: 20%;
+  margin-top: 33px;
+}

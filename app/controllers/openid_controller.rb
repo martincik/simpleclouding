@@ -2,7 +2,6 @@ require 'openid'
 require 'openid/store/filesystem'
 
 class OpenidController < ApplicationController
-  
   layout 'login'
   
   def new
