@@ -18,16 +18,16 @@ module NavigationHelpers
       '/openid/create'
 
     when /the cloud listing page/
-      clouds_url
+      clouds_path
     
     when /the new cloud page/
-      new_cloud_url
+      new_cloud_path
 
     when /the server listing page/
-      servers_url
+      servers_path
     
     when /the new server page/
-      new_server_url
+      new_server_path
           
     # Add more mappings here.
     # Here is a more fancy example:

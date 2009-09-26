@@ -18,3 +18,12 @@ Feature: Starting server for Amazon EC2
     And I press "Run server"
     Then I should see "MySQL server"
     And server "MySQL server" created on Amazon
+    
+  Scenario: Shuttingdown server
+    Given I am logged in as ladislav.martincik@myopenid.com
+    And I have running servers in cloud
+    When I go to the server listing page
+    And I follow "Delete" within "#servers .server"
+    Then I should be on the server listing page
+    And I should not see "MySQL server"
+  
