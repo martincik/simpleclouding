@@ -40,7 +40,7 @@
           <ul>
             <li><a href="#" title="Dashboard">Dashboard</a></li>
             <li<%= ' class="selected"' if @tab_name == 'manage' %>><%= link_to 'Manage', home_url %></li>
-            <li><a href="#" title="Design">Design</a></li>
+            <li<%= ' class="selected"' if @tab_name == 'clouds' %>><%= link_to 'Clouds', clouds_url %></li>
           </ul>
         </div>
       

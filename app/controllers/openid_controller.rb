@@ -41,8 +41,8 @@ class OpenidController < ApplicationController
         flash[:error] = ("Verification of #{oidresp.display_identifier}"\
                          " failed: #{oidresp.message}")
       else
-        flash[:error] = "Verification failed: #{oidresp.message}"
       end
+        flash[:error] = "Verification failed: #{oidresp.message}"
     when OpenID::Consumer::SUCCESS
       flash[:success] = ("Verification of #{oidresp.display_identifier}"\
                          " succeeded.")

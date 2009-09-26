@@ -77,7 +77,7 @@ class CloudsController < ApplicationController
   protected
   
     def setup_tabs
-      @tab_name = 'manage'
+      @tab_name = 'clouds'
       @subtab_name = 'clouds'
     end
 
