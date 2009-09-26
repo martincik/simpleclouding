@@ -15,6 +15,6 @@ Feature: Starting server for Amazon EC2
     When I go to the new server page
     And I fill in "server_name" with "MySQL server"
     And I select "Amazon" from "server_cloud_id"
-    And I press "Create server"
+    And I press "Run server"
     Then I should see "MySQL server"
     And server "MySQL server" created on Amazon

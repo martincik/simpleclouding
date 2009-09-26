@@ -5,11 +5,11 @@ class Cloud < ActiveRecord::Base
   # Origin is just helper attribute for forms
   attr_accessor :origin
   ORIGINS = [
-    'Amazon Cloud', 'My Cloud'
+    'Amazon EC2 (aws.amazon.com)', 'Linode (linode.com)'
   ]
   ORIGIN = {
     'AMAZON'  => ORIGINS[0],
-    'MYCLOUD' => ORIGINS[1]
+    'LINODE' => ORIGINS[1]
   }
 
   validates_presence_of :name
