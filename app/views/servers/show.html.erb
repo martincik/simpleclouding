@@ -1,0 +1,9 @@
+<%= context_links(link_to('Servers', servers_url), h(@server.name)) %>
+
+<div id="server-show" class="common-show">
+  <h1><a href="#" id="server-show-details"><%= h @server.name %>&nbsp;&darr;</a></h1>
+  <p style="display: none;">
+    <em>Created at <%= @server.created_at.to_s(:long) %>, last update at <%= @server.updated_at.to_s(:long) %></em><br />
+    <%= h @server.description %>
+  </p>
+</div>

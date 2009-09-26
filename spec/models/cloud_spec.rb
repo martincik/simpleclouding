@@ -17,4 +17,9 @@ describe Cloud do
     Cloud.new(@valid_attributes).save.should be_false
   end
   
+  it "returns created clouds for select" do  
+    cloud = Cloud.create!(@valid_attributes)
+    Cloud.all_clouds_for_select.should == {'New cloud' => cloud.id}
+  end
+  
 end

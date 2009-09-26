@@ -1,5 +1,7 @@
 class Cloud < ActiveRecord::Base
-
+  
+  has_many :servers
+  
   # Origin is just helper attribute for forms
   attr_accessor :origin
   ORIGINS = [
@@ -16,4 +18,8 @@ class Cloud < ActiveRecord::Base
     raise RuntimeError.new('Not implemented in abstract class!')
   end
   
+  def self.all_clouds_for_select
+    all.inject({}) {|cloud_map, cloud| cloud_map[cloud.name] = cloud.id; cloud_map }  
+  end
+ 
 end

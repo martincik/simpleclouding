@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090925122308) do
+ActiveRecord::Schema.define(:version => 20090926084715) do
 
   create_table "clouds", :force => true do |t|
     t.string   "name"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(:version => 20090925122308) do
     t.string   "secret_access_key"
     t.string   "type"
     t.string   "identity_url",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "servers", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "cloud_id",    :null => false
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

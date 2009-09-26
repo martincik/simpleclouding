@@ -22,7 +22,13 @@ module NavigationHelpers
     
     when /the new cloud page/
       new_cloud_url
+
+    when /the server listing page/
+      servers_url
     
+    when /the new server page/
+      new_server_url
+          
     # Add more mappings here.
     # Here is a more fancy example:
     #

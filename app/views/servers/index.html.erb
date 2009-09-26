@@ -1,0 +1,22 @@
+
+<div style="padding-bottom: 10px;">
+<span class="button"><%= link_to 'Add server', new_server_url, :class => 'add' %></span>
+</div>
+
+<% if @servers.empty? -%>
+<p class="no-record" style="margin-top: 10px;">
+  No servers available! You can create new one by clicking on <%= link_to 'Add server', new_server_url %> link.
+</p>
+<% else -%>
+  <div id="servers" class="collection">
+  <% @servers.each do |server| -%>  
+    <div class="server item<%= cycle(' odd','') -%>">
+      <h1><%= link_to h(server.name), server_path(server) %><%= link_to 'Edit', edit_server_url(server), :class => 'edit' %><%= link_to 'Delete', server_url(server), :method => :delete, :class => 'destroy', :confirm => "Are you sure you want to delete server - #{server.name}?" %></h1>
+      <em>Created at <%= server.created_at.to_s(:long) %>, last updated at <%= server.updated_at.to_s(:long) %></em>
+      <p>
+        <%= shorten h(server.description), 250 %>
+      </p>
+    </div>
+  <% end -%>
+  </div>
+<% end -%>

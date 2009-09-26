@@ -1,0 +1,52 @@
+<%= context_links(link_to('Servers', servers_url), 'New server') %>
+<br /><br />
+
+<h1>New server</h1>
+<br />
+
+<%= error_messages_for :server %>
+
+<% form_for(:server, @server, :url => { :action => :create }, :html => { :class => 'common-form' } ) do |f| %>
+  
+  <table id="new-server" cellpadding="0" cellspacing="0">
+  <tbody>
+
+    <tr>
+    	<th><label for="server_name" class="mandatory">Name</label></th>
+      <td><%= f.text_field :name, :style => 'font-size: 14pt;' %></td>
+    	<td class="helper" rowspan="3">
+        All fields marked with red <strong style="color: #f00;">color</strong> are mandatory.
+      </td>
+    </tr>
+
+    <tr>
+      <th><label for="server_description">Description</label></th>
+      <td><%= f.text_area :description, :rows => 6 %></td>
+    </tr>
+    
+    <tr>
+      <th><label for="server_cloud">Cloud</label></th>
+      <td><%= f.select :cloud_id, Cloud.all_clouds_for_select %></td>
+    </tr>
+    
+    <tfoot>
+   
+    </tfoot>
+
+  </tbody>
+  </table>
+  
+  <%= f.submit "Create server", :class => 'submit' %> or <%= link_to 'cancel', servers_url %>
+<% end %>
+
+<script>
+ $(document).ready(function(){
+    $("select#server_origin").change(function () {
+      if ($("select#server_origin option:selected").text() == '<%= Cloud::ORIGIN['AMAZON'] %>') {
+        $('table#new-server tfoot').show()
+      } else {
+        $('table#new-server tfoot').hide()
+      }
+    }).change();
+ });
+</script>
