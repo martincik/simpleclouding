@@ -25,7 +25,9 @@ ActiveRecord::Schema.define(:version => 20090926084715) do
   create_table "servers", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "cloud_id",    :null => false
+    t.integer  "cloud_id",       :null => false
+    t.string   "instance_id"
+    t.string   "reservation_id", :null => false
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"

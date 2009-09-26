@@ -4,7 +4,8 @@ class CreateServers < ActiveRecord::Migration
       t.string  :name
       t.text    :description
       t.integer :cloud_id, :null => false
-      
+      t.string :instance_id
+      t.string :reservation_id, :null => false
       t.string :type # My own cloud, Amazon Cloud
       
       t.timestamps
