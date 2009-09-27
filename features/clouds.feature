@@ -33,7 +33,60 @@ Feature: Support for configuration of cloud
     And I should see "Amazon cloud"
     And I should see "Security Group"
     And I should see "Key Pairs"
-    And I should see "Default zone" 
+    
+  Scenario: Getting to listing page of Security group
+    Given I am logged in as ladislav.martincik@myopenid.com
+    And I have created cloud "Amazon cloud" 
+    When I go to cloud show page for cloud "Amazon cloud"
+    And I follow "Security Group"
+    Then I should be on the security group listing page for cloud "Amazon cloud"
+    And I should see "default"
+    And I should see "Add Security Group"
+    
+  Scenario: Adding new security group for Amazon cloud
+    Given I am logged in as ladislav.martincik@myopenid.com
+    And I have created cloud "Amazon cloud" 
+    When I go to cloud show page for cloud "Amazon cloud"
+    And I follow "Security Group"
+    And I follow "Add Security Group"
+    And I fill in "security_group_name" with "New security group name"
+    And I fill in "security_group_description" with "New security group description"
+    And I press "Create Security Group"
+    Then I should be on the security group listing page for cloud "Amazon cloud"
+    And I should see "New security group name"
+    
+  #Scenario: Adding new security group for Amazon cloud
+  #  Given I am logged in as ladislav.martincik@myopenid.com
+  #  And I have created cloud "Amazon cloud" 
+  #  When I go to cloud show page for cloud "Amazon cloud"
+  #  And I follow "Security Group"
+  #  And I follow delete link for security group "New security group name"
+  #  Then I should be on the security group listing page for cloud "Amazon cloud"
+  #  And I should not see "New security group name"
+    
+  Scenario: Getting to listing page of Key Pairs
+    Given I am logged in as ladislav.martincik@myopenid.com
+    And I have created cloud "Amazon cloud" 
+    When I go to cloud show page for cloud "Amazon cloud"
+    And I follow "Key Pairs"
+    Then I should be on the key pairs listing page for cloud "Amazon cloud"
+    And I should see "default-EC2-US"
+    And I should see "Create Key Pair"
+
+  Scenario: Adding new key pairs for Amazon cloud
+    Given I am logged in as ladislav.martincik@myopenid.com
+    And I have created cloud "Amazon cloud" 
+    When I go to cloud show page for cloud "Amazon cloud"
+    And I follow "Key Pairs"
+    And I follow "Create Key Pair"
+    And I fill in "key_pair_key_name" with "New key name"
+    And I press "Create key pair"
+    Then I should be on the key pairs listing page for cloud "Amazon cloud"
+    And I should see "New key name"
+      
+  
+
+  
   
 
   

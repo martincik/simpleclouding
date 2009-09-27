@@ -18,8 +18,8 @@ class Cloud < ActiveRecord::Base
     raise RuntimeError.new('Not implemented in abstract class!')
   end
   
-  def self.all_clouds_for_select
-    all.inject({}) {|cloud_map, cloud| cloud_map[cloud.name] = cloud.id; cloud_map }  
+  def self.all_clouds_for_select_with_blank
+    all.inject({'' => 0}) {|cloud_map, cloud| cloud_map[cloud.name] = cloud.id; cloud_map }  
   end
  
 end

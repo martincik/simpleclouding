@@ -40,7 +40,7 @@ class CloudsController < ApplicationController
     respond_to do |format|
       if @cloud.save
         flash[:notice] = 'Cloud successfully created.'
-        format.html { redirect_to(cloud_url(@cloud)) }
+        format.html { redirect_to(clouds_url) }
         format.xml  { render :xml => @cloud, :status => :created, :location => @cloud }
       else
         format.html { render :action => "new" }
@@ -71,6 +71,15 @@ class CloudsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(clouds_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def cloud_options
+    @cloud = Cloud.find(params[:id])
+    partial_file_name = @cloud.class.to_s.tableize + '_options'
+    
+    respond_to do |format|
+      format.html { render :partial => partial_file_name, :locals => @cloud.cloud_options_as_locals }
     end
   end
 

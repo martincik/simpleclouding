@@ -13,8 +13,8 @@
   <% else -%>
     <div id="cloud-security-group" class="collection">
     <% @aws_security_groups.each do |aws_security_group| -%>  
-      <div class="cloud item<%= cycle(' odd','') -%>">
-        <h1><%= link_to h(aws_security_group.name), show_cloud_aws_security_group_url(@cloud.id, :name => aws_security_group.name) %><%= link_to 'Delete', cloud_aws_security_group_url(@cloud.id, :name => aws_security_group.name), :method => :delete, :class => 'destroy', :confirm => "Are you sure you want to delete security group - #{@cloud.name}?" %></h1>
+      <div class="cloud uitem<%= cycle(' odd','') -%>">
+        <h1><%= h(aws_security_group.name) %><%= link_to 'Delete', cloud_aws_security_group_url(@cloud.id, :name => aws_security_group.name), :method => :delete, :class => 'destroy', :confirm => "Are you sure you want to delete security group - #{aws_security_group.name}?" %></h1>
         <em>Owned by <%= aws_security_group.owner %></em>
         <p>
           <%= shorten h(aws_security_group.description), 250 %>

@@ -1,0 +1,12 @@
+<tr>
+	<th><label for="cloud_amazon_security_group" class="mandatory">Security Group</label></th>
+  <td><%= select 'cloud_options', 'amazon_security_group', security_groups %></td>
+  <td class="helper" rowspan="2">
+    Please select your default options for creating server.
+  </td>
+</tr>
+
+<tr>
+	<th><label for="cloud_amazon_key_pair" class="mandatory">Key Pairs</label></th>
+  <td><%= select 'cloud_options', 'amazon_key_pair', key_pairs %></td>
+</tr>

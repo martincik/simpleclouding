@@ -4,6 +4,10 @@ class AwsKeyPair < ActiveRecord::Base
   
   validates_presence_of :key_name
   
+  def name
+    key_name
+  end
+  
   def save
     begin
       save! 

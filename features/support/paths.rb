@@ -30,7 +30,13 @@ module NavigationHelpers
       new_server_path
       
     when /^cloud show page for cloud "([^\"]*)"$/i
-      cloud_path(Cloud.find_by_name($1))
+      cloud_aws_security_groups_path(Cloud.find_by_name($1))
+    
+    when /^the security group listing page for cloud "([^\"]*)"$/i
+      cloud_aws_security_groups_path(Cloud.find_by_name($1))
+    
+    when /^the key pairs listing page for cloud "([^\"]*)"$/i
+      cloud_aws_key_pairs_path(Cloud.find_by_name($1))
     
     # Add more mappings here.
     # Here is a more fancy example:

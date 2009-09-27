@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.home '/', :controller => 'dashboard', :action => 'index'
   
   map.resources :servers, :member => { :restart => :get }
-  map.resources :clouds do |cloud|
+  map.resources :clouds, :collection => { :cloud_options => :get } do |cloud|
     cloud.namespace :aws, :name_prefix => 'cloud_aws_' do |aws|
       aws.resources :security_groups, :as => 'aws/security_groups'
       aws.resources :key_pairs,       :as => 'aws/key_pairs'
@@ -22,7 +22,7 @@ ActionController::Routing::Routes.draw do |map|
     :conditions => { :method => :delete }
   
   # AWS => Key Pairs
-  map.show_cloud_aws_key_pairs 'clouds/:cloud_id/aws/key_pairs/show',
+  map.show_cloud_aws_key_pair 'clouds/:cloud_id/aws/key_pairs/show',
     :controller => 'aws/key_pairs', :action => 'show',
     :conditions => { :method => :get }
   

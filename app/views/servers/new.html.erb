@@ -26,11 +26,11 @@
     
     <tr>
       <th><label for="server_cloud">Cloud</label></th>
-      <td><%= f.select :cloud_id, Cloud.all_clouds_for_select %></td>
+      <td><%= f.select :cloud_id, Cloud.all_clouds_for_select_with_blank, :selected => '' %></td>
     </tr>
     
     <tfoot>
-   
+     
     </tfoot>
 
   </tbody>
@@ -41,12 +41,26 @@
 
 <script>
  $(document).ready(function(){
-    $("select#server_origin").change(function () {
-      if ($("select#server_origin option:selected").text() == '<%= Cloud::ORIGIN['AMAZON'] %>') {
-        $('table#new-server tfoot').show()
-      } else {
-        $('table#new-server tfoot').hide()
-      }
+    $("select#server_cloud_id").change(function () {
+        var cloud_id = $("select#server_cloud_id option:selected").val();
+        if (cloud_id == '0') {
+          $('table#new-server tfoot').html('');
+          return; 
+        }
+        
+        $.ajax({
+          type: 'GET',
+          url: '<%= cloud_options_clouds_path %>',
+          dataType: "html",
+          cache: false,
+          data: { id: cloud_id },
+          success: function(html){
+            $("table#new-server tfoot").html('');
+            $("table#new-server tfoot").append(html);
+          }
+        });
+        
+      
     }).change();
  });
 </script>
