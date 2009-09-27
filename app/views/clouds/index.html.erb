@@ -10,7 +10,7 @@
 <% else -%>
   <div id="clouds" class="collection">
   <% @clouds.each do |cloud| -%>  
-    <div class="cloud item<%= cycle(' odd','') -%>">
+    <div class="cloud uitem<%= cycle(' odd','') -%>">
       <h1><%= link_to h(cloud.name), cloud_path(cloud) %><%= link_to 'Edit', edit_cloud_url(cloud), :class => 'edit' %><%= link_to 'Delete', cloud_url(cloud), :method => :delete, :class => 'destroy', :confirm => "Are you sure you want to delete cloud - #{cloud.name}?" %></h1>
       <em>Created at <%= cloud.created_at.to_s(:long) %>, last updated at <%= cloud.updated_at.to_s(:long) %></em>
       <p>

@@ -10,8 +10,8 @@
 <% else -%>
   <div id="servers" class="collection">
   <% @servers.each do |server| -%>  
-    <div class="server item<%= cycle(' odd','') -%>">
-      <h1><%= link_to h(server.name), server_path(server) %><%= link_to 'Delete', server_url(server), :method => :delete, :class => 'destroy', :confirm => "Are you sure you want to delete server - #{server.name}?" %></h1>
+    <div class="server uitem<%= cycle(' odd','') -%>">
+      <h1><%= link_to h(server.name), server_path(server) %><%= link_to 'Shutdown', server_url(server), :method => :delete, :class => 'destroy', :confirm => "Are you sure you want to shutdown server - #{server.name}?" %><%= link_to 'Restart', restart_server_url(server), :class => 'destroy', :confirm => "Are you sure you want to restart server - #{server.name}?" %></h1>
       <em>Created at <%= server.created_at.to_s(:long) %>, last updated at <%= server.updated_at.to_s(:long) %></em>
       <p>
         <%= shorten h(server.description), 250 %>

@@ -10,6 +10,7 @@ class Server < ActiveRecord::Base
   before_destroy :terminate_instance
   
   def launch_instance
+    return if RAILS_ENV['development']
     ec2 = RightAws::Ec2.new(cloud.access_key, cloud.secret_access_key)     
     instances = ec2.launch_instances('ami-11ca2d78', 
       :group_ids => 'simpleclouding_test',
@@ -22,8 +23,14 @@ class Server < ActiveRecord::Base
   end
   
   def terminate_instance
+    return if RAILS_ENV['development']
     ec2 = RightAws::Ec2.new(cloud.access_key, cloud.secret_access_key)     
     ec2.terminate_instances([server_attributes[:aws_instance_id]])
+  end
+  
+  def restart    
+    ec2 = RightAws::Ec2.new(cloud.access_key, cloud.secret_access_key)     
+    ec2.reboot_instances([server_attributes[:aws_instance_id]])
   end
   
 end

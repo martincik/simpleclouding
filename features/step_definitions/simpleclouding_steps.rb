@@ -28,13 +28,14 @@ Given /I have running servers in cloud/ do
   ec2.should_receive(:describe_instances).and_return([{:aws_instance_id => 'instance_id'}])
   ec2.should_receive(:describe_key_pairs)
   ec2.should_receive(:terminate_instances).with(["instance_id"])
+  ec2.should_receive(:reboot_instances)
   RightAws::Ec2.stub!(:new).and_return(ec2)
   
   cloud = CloudAmazon.create!(:name => "Amazon", 
     :access_key => 'AKIAIDFDWUQAAFHYSS5Q', 
     :secret_access_key => '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', 
     :identity_url => 'ladislav.martincik@myopenid.com')
-  Server.create!(:name => 'Sql server', :cloud_id => cloud.id)
+  Server.create!(:name => 'MySQL server', :cloud_id => cloud.id)
 end
 
 Then /^server "([^\"]*)" created on Amazon$/ do |server_name|

@@ -8,30 +8,40 @@
   background-color: #efefef;
 }
 
-.collection .item {
+.collection .item,
+.collection .uitem {
   padding: 15px;
   min-height: 50px;
   border-left: 1px solid #efefef;
   border-right: 1px solid #efefef;
 }
 
-.collection .item p {
+.collection .item p,
+.collection .uitem p {
   padding-top: 1em;
 }
 
-.collection .item h1 {
+.collection .item h1,
+.collection .uitem h1 {
   padding-bottom: 10px;
   clear: both;
 }
 
-.collection .item h2 {
+.collection .item h2,
+.collection .uitem h2 {
   clear: both;
 }
 
 .collection .item h1 a.edit,
 .collection .item h2 a.edit,
 .collection .item h1 a.destroy,
-.collection .item h2 a.destroy {
+.collection .item h2 a.destroy,
+.collection .uitem h1 a.edit,
+.collection .uitem h2 a.edit,
+.collection .uitem h1 a.destroy,
+.collection .uitem h2 a.destroy,
+.collection .uitem h1 a.action, 
+.collection .uitem h2 a.action {
   margin: 0;
   margin-left: 10px;
   padding: 3px 10px;
@@ -53,7 +63,9 @@
 }
 
 .collection .item h1 a.destroy,
-.collection .item h2 a.destroy {
+.collection .item h2 a.destroy,
+.collection .uitem h1 a.destroy,
+.collection .uitem h2 a.destroy {
   margin-left: 8px;
   border: 1px solid #CF1919;
   background: #CF1919;

@@ -64,6 +64,16 @@ class ServersController < ApplicationController
     end
   end
 
+  def restart
+    @server = Server.find(params[:id])
+    @server.restart
+    
+    respond_to do |format|
+      format.html { redirect_to(servers_url) }
+      format.xml  { head :ok }
+    end    
+  end
+
   def destroy
     @server = Server.find(params[:id])
     @server.destroy

@@ -21,4 +21,4 @@ source "http://gems.github.com"
 
 # Optionally, you can disable system gems all together and only
 # use bundled gems.
-#disable_system_gems
+disable_system_gems
