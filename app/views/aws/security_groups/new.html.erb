@@ -1,0 +1,40 @@
+<% content_for :aws_content do -%>
+  
+  <%= context_links(link_to('Security Groups', cloud_aws_security_groups_url), 'New Security Group') %>
+  <br /><br />
+
+  <h1>New Security Group</h1>
+  <br />
+
+  <%= error_messages_for :aws_security_group %>
+
+  <% form_for(:security_group, @aws_security_group, :url => { 
+      :controller => 'aws/security_groups', 
+      :action => :create, :cloud_id => @cloud.id 
+     }, :html => { :class => 'common-form' }) do |f| %>
+
+    <table id="id="new-security-group" cellpadding="0" cellspacing="0">
+    <tbody>
+
+      <tr>
+      	<th><label for="aws_security_group_name" class="mandatory">Name</label></th>
+        <td><%= f.text_field :name, :style => 'font-size: 14pt;' %></td>
+      	<td class="helper" rowspan="3">
+          All fields marked with red <strong style="color: #f00;">color</strong> are mandatory.
+        </td>
+      </tr>
+
+      <tr>
+        <th><label for="aws_security_group_description">Description</label></th>
+        <td><%= f.text_area :description, :rows => 6 %></td>
+      </tr>
+
+    </tbody>
+    </table>
+
+    <%= f.submit "Create security group", :class => 'submit' %> or <%= link_to 'cancel', cloud_aws_security_groups_url %>
+  <% end %>
+  
+<% end -%>
+
+<%= render :file => 'aws/sublayout/cloud_aws' %>

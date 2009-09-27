@@ -9,7 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090926084715) do
+ActiveRecord::Schema.define(:version => 20090927112725) do
+
+  create_table "aws_key_pairs", :force => true do |t|
+    t.string   "fingerprint"
+    t.string   "key_name"
+    t.string   "material"
+    t.integer  "cloud_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "aws_security_groups", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "owner"
+    t.integer  "cloud_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clouds", :force => true do |t|
     t.string   "name"

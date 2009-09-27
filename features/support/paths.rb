@@ -28,7 +28,10 @@ module NavigationHelpers
     
     when /the new server page/
       new_server_path
-          
+      
+    when /^cloud show page for cloud "([^\"]*)"$/i
+      cloud_path(Cloud.find_by_name($1))
+    
     # Add more mappings here.
     # Here is a more fancy example:
     #

@@ -1,0 +1,57 @@
+<% content_for :aws_content do -%>
+  <h2>Key Pairs</h2>
+  <br />
+  
+  <div style="padding-bottom: 10px;">
+  <span class="button"><%= link_to 'Create Key Pair', new_cloud_aws_key_pair_path, :class => 'add' %></span>
+  </div>
+  
+  <% if @aws_key_pairs.empty? -%>
+  <p class="no-record" style="margin-top: 10px;">
+    No key pair available! You can create new one by clicking on <%= link_to 'Create Key Pair', url_for(:action => :create, :cloud_id => @cloud.id), :method => :post %> link.
+  </p>
+  <% else -%>
+    <table class="common-table" cellpadding="0" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Fingerprint</th>
+        <th colspan="2">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @aws_key_pairs.each do |key_pair| -%>  
+      <tr>
+        <td><%= h(key_pair.key_name) %></td>
+        <td><%= h(key_pair.fingerprint) %></td>
+        <% if session[:aws_key_pairs] && session[:aws_key_pairs][key_pair.fingerprint] -%>
+        <td class="actions">
+          <%= link_to '&nbsp;', show_cloud_aws_key_pair_path(@cloud, :fingerprint => key_pair.fingerprint), :class => 'download' -%>
+        </td>
+        <% else -%>
+        <td class="actions">&nbsp;</td>
+        <% end -%>
+        <td class="actions">
+          <%= link_to '&nbsp;', cloud_aws_key_pair_path(@cloud, 
+            :key_name => key_pair.key_name
+            ), :class => 'destroy', :method => :delete,
+               :confirm => "Are you sure you want to delete key pair named #{key_pair.key_name}?"
+          %>
+        </td>
+      </tr>
+      <% end -%>
+    </tbody>
+    </table>
+  <% end -%>
+  
+<% end -%>
+
+<%= render :file => 'aws/sublayout/cloud_aws' %>
+
+<script>
+ $(document).ready(function(){
+    $("a.download").click(function () {
+      $(this).remove();
+    });
+  });
+</script>

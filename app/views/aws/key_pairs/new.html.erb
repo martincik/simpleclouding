@@ -1,0 +1,35 @@
+<% content_for :aws_content do -%>
+  
+  <%= context_links(link_to('Key Pairs', cloud_aws_key_pairs_url), 'New Key Pair') %>
+  <br /><br />
+
+  <h1>New Key Pair</h1>
+  <br />
+
+  <%= error_messages_for :aws_key_pair %>
+
+  <% form_for(:key_pair, @aws_key_pair, :url => { 
+      :controller => 'aws/key_pairs', 
+      :action => :create, :cloud_id => @cloud.id 
+     }, :html => { :class => 'common-form' }) do |f| %>
+
+    <table id="id="new-key-pair" cellpadding="0" cellspacing="0">
+    <tbody>
+
+      <tr>
+      	<th><label for="aws_key_pair_name" class="mandatory">Name</label></th>
+        <td><%= f.text_field :key_name, :style => 'font-size: 14pt;' %></td>
+      	<td class="helper" rowspan="3">
+          All fields marked with red <strong style="color: #f00;">color</strong> are mandatory.
+        </td>
+      </tr>
+
+    </tbody>
+    </table>
+
+    <%= f.submit "Create key pair", :class => 'submit' %> or <%= link_to 'cancel', cloud_aws_key_pairs_url %>
+  <% end %>
+  
+<% end -%>
+
+<%= render :file => 'aws/sublayout/cloud_aws' %>

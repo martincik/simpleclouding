@@ -1,0 +1,24 @@
+<%= context_links(link_to('Clouds', clouds_url), h(@cloud.name)) %>
+
+<div id="cloud-show" class="common-show">
+  <h1><a href="#" id="cloud-show-details"><%= h @cloud.name %>&nbsp;&darr;</a></h1>
+  <p style="display: none;">
+    <em>Created at <%= @cloud.created_at.to_s(:long) %>, last update at <%= @cloud.updated_at.to_s(:long) %></em><br />
+    <%= h @cloud.description %>
+  </p>
+</div>
+
+<div id="cloud-aws" class="clearfix">
+
+  <div id="aws-sidebar">
+    <ul>
+      <li<%= ' class="selected"' if @awstab_name == 'key_pairs' %>><%= link_to 'Key Pairs', cloud_aws_key_pairs_url %></li>
+      <li<%= ' class="selected"' if @awstab_name == 'security_groups' %>><%= link_to 'Security Groups', cloud_aws_security_groups_url %></li>
+    </ul>
+  </div>
+  
+  <div id="aws-content">
+    <%= yield :aws_content %>
+  </div>
+  
+</div>

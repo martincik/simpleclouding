@@ -1,9 +1,0 @@
-<%= context_links(link_to('Clouds', clouds_url), h(@cloud.name)) %>
-
-<div id="cloud-show" class="common-show">
-  <h1><a href="#" id="cloud-show-details"><%= h @cloud.name %>&nbsp;&darr;</a></h1>
-  <p style="display: none;">
-    <em>Created at <%= @cloud.created_at.to_s(:long) %>, last update at <%= @cloud.updated_at.to_s(:long) %></em><br />
-    <%= h @cloud.description %>
-  </p>
-</div>

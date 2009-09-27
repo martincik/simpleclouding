@@ -1,0 +1,57 @@
+#cloud-aws {
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+#aws-sidebar {
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 20%;
+}
+
+#aws-sidebar ul {
+  margin: 0;
+  padding: 8px 0;
+  background: #9EB3A5;
+  -moz-border-radius-topright: 4px;
+  -moz-border-radius-topleft: 4px;
+  list-style:none;
+  text-align: right;
+}
+
+#aws-sidebar ul li {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #efefef;
+}
+
+#aws-sidebar li a {
+  display: block;
+  padding: 4px 15px;
+  background: #478F7D;
+  color: #efefef;
+  text-decoration: none;
+}
+
+#aws-sidebar li a:hover {
+  background: #4A7B6F;
+}
+
+#aws-sidebar li.selected a {
+  background: #e8e8e8 url(../images/submit_button.gif) top left repeat-x;
+  color: #111;
+  font-style: italic;
+}
+
+#aws-content {
+  margin: 0;
+  float: right;
+  width: 78%;
+}
+
+#aws-sidebar li {
+  padding: 5px 25px;
+  margin: 0;
+}

@@ -1,0 +1,29 @@
+<% content_for :aws_content do -%>
+  <h2>Security Groups</h2>
+  <br />
+  
+  <div style="padding-bottom: 10px;">
+  <span class="button"><%= link_to 'Add Security Group', new_cloud_aws_security_group_path, :class => 'add' %></span>
+  </div>
+  
+  <% if @aws_security_groups.empty? -%>
+  <p class="no-record" style="margin-top: 10px;">
+    No security group available! You can create new one by clicking on <%= link_to 'Add Security Group', new_cloud_aws_security_group_path %> link.
+  </p>
+  <% else -%>
+    <div id="cloud-security-group" class="collection">
+    <% @aws_security_groups.each do |aws_security_group| -%>  
+      <div class="cloud item<%= cycle(' odd','') -%>">
+        <h1><%= link_to h(aws_security_group.name), show_cloud_aws_security_group_url(@cloud.id, :name => aws_security_group.name) %><%= link_to 'Delete', cloud_aws_security_group_url(@cloud.id, :name => aws_security_group.name), :method => :delete, :class => 'destroy', :confirm => "Are you sure you want to delete security group - #{@cloud.name}?" %></h1>
+        <em>Owned by <%= aws_security_group.owner %></em>
+        <p>
+          <%= shorten h(aws_security_group.description), 250 %>
+        </p>
+      </div>
+    <% end -%>
+    </div>
+  <% end -%>
+  
+<% end -%>
+
+<%= render :file => 'aws/sublayout/cloud_aws' %>

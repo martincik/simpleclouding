@@ -12,6 +12,7 @@ Feature: Starting server for Amazon EC2
   Scenario: Create new server
     Given I am logged in as ladislav.martincik@myopenid.com
     And I have created cloud "Amazon"
+    And I have stubbed external calls for server lunch
     When I go to the new server page
     And I fill in "server_name" with "MySQL server"
     And I select "Amazon" from "server_cloud_id"
