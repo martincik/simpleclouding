@@ -43,7 +43,6 @@
  $(document).ready(function(){
     $("select#server_cloud_id").change(function () {
         var cloud_id = $("select#server_cloud_id option:selected").val();
-        console.log(cloud_id);
         if (cloud_id == '') {
           $('table#new-server tfoot').html('');
           return; 
