@@ -15,6 +15,7 @@ gem "rspec", :only => :testing
 gem "rspec-rails", :only => :testing
 gem "webrat", :only => :testing
 gem "cucumber", :only => :testing
+gem "metrics-fu", :only => :testing
 
 # Sources
 source "http://gems.github.com"
