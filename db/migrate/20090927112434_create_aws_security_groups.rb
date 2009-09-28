@@ -12,6 +12,6 @@ class CreateAwsSecurityGroups < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :aws_seurity_groups
+    drop_table :aws_security_groups
   end
 end

@@ -5,4 +5,4 @@ tmp/*
 .eprj
 config/database.yml
 db/*.sql
-
+db/schema.rb

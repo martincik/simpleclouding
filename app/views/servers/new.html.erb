@@ -26,7 +26,7 @@
     
     <tr>
       <th><label for="server_cloud">Cloud</label></th>
-      <td><%= f.select :cloud_id, Cloud.all_clouds_for_select_with_blank, :selected => '' %></td>
+      <td><%= f.select :cloud_id, Cloud.all_clouds_for_select, :selected => '', :include_blank => true %></td>
     </tr>
     
     <tfoot>
@@ -43,7 +43,8 @@
  $(document).ready(function(){
     $("select#server_cloud_id").change(function () {
         var cloud_id = $("select#server_cloud_id option:selected").val();
-        if (cloud_id == '0') {
+        console.log(cloud_id);
+        if (cloud_id == '') {
           $('table#new-server tfoot').html('');
           return; 
         }
