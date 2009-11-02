@@ -15,10 +15,11 @@ gem "rspec", :only => :testing
 gem "rspec-rails", :only => :testing
 gem "webrat", :only => :testing
 gem "cucumber", :only => :testing
-gem "metrics-fu", :only => :testing
+gem "mwilden-metric_fu", :only => :testing
 
 # Sources
 source "http://gems.github.com"
+source "http://gemcutter.org"
 
 # Optionally, you can disable system gems all together and only
 # use bundled gems.
