@@ -1,5 +1,5 @@
 class CloudsController < ApplicationController
-  
+
   before_filter :login_required
   before_filter :setup_tabs
 
@@ -36,7 +36,7 @@ class CloudsController < ApplicationController
 
   def create
     @cloud = CloudFactory.new_from_origin(params[:cloud].merge(:identity_url => session[:identity_url]))
-    
+
     respond_to do |format|
       if @cloud.save
         flash[:notice] = 'Cloud successfully created.'
@@ -77,14 +77,14 @@ class CloudsController < ApplicationController
   def cloud_options
     @cloud = Cloud.find(params[:id])
     partial_file_name = @cloud.class.to_s.tableize + '_options'
-    
+
     respond_to do |format|
       format.html { render :partial => partial_file_name, :locals => @cloud.cloud_options_as_locals }
     end
   end
 
   protected
-  
+
     def setup_tabs
       @tab_name = 'clouds'
       @subtab_name = 'clouds'

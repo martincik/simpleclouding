@@ -1,5 +1,5 @@
 class CloudLinode < Cloud
-  
+
   validates_presence_of :access_key
 
   validate :validates_keys_existence
@@ -11,11 +11,11 @@ class CloudLinode < Cloud
       errors.add_to_base(e.message)
       return false
     end
-    
+
     true
   end
 
   def support_access_key?
     true
-  end  
+  end
 end

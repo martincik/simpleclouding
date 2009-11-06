@@ -1,5 +1,5 @@
 class ServersController < ApplicationController
-  
+
   before_filter :login_required
   before_filter :setup_tabs
 
@@ -36,7 +36,7 @@ class ServersController < ApplicationController
 
   def create
     @server = Server.new(params[:server])
-    
+
     respond_to do |format|
       if @server.save
         flash[:notice] = 'Server successfully created.'
@@ -67,11 +67,11 @@ class ServersController < ApplicationController
   def restart
     @server = Server.find(params[:id])
     @server.restart
-    
+
     respond_to do |format|
       format.html { redirect_to(servers_url) }
       format.xml  { head :ok }
-    end    
+    end
   end
 
   def destroy
@@ -85,7 +85,7 @@ class ServersController < ApplicationController
   end
 
   protected
-  
+
     def setup_tabs
       @tab_name = 'manage'
       @subtab_name = 'servers'

@@ -18,11 +18,11 @@ describe Server do
     server.save.should be_true
     server.server_attributes.should == {:aws_instance_id => 'instance_id'}
   end
-  
+
   it "shutdown instance of server before we destroy the object" do
     @ec2.should_receive(:terminate_instances).and_return([{:aws_instance_id => "instance_id"}])
     server = Server.create!(@valid_attributes)
     server.destroy.should be_instance_of(Server)
   end
-  
+
 end

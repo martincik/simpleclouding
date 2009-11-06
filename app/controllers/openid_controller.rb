@@ -3,7 +3,7 @@ require 'openid/store/filesystem'
 
 class OpenidController < ApplicationController
   layout 'login'
-  
+
   def new
   end
 
@@ -19,10 +19,10 @@ class OpenidController < ApplicationController
       flash[:error] = "Discovery failed for #{identifier}: #{e}"
       redirect_to :action => 'new' and return
     end
-    
+
     return_to = url_for :action => 'complete', :only_path => false
     realm = url_for :action => 'index', :only_path => false
-    
+
     if oidreq.send_redirect?(realm, return_to, params[:immediate])
       redirect_to oidreq.redirect_url(realm, return_to, params[:immediate])
     else
@@ -34,7 +34,7 @@ class OpenidController < ApplicationController
     current_url = url_for(:action => 'complete', :only_path => false)
     parameters = params.reject{|k,v|request.path_parameters[k]}
     oidresp = consumer.complete(parameters, current_url)
-    
+
     case oidresp.status
     when OpenID::Consumer::FAILURE
       if oidresp.display_identifier
@@ -53,7 +53,7 @@ class OpenidController < ApplicationController
       flash[:alert] = "OpenID transaction cancelled."
     else
     end
-    
+
     redirect_to home_url
   end
 

@@ -7,14 +7,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   filter_parameter_logging :secret_access_key
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
-  
+
   # This is for navigation purpose
   attr_reader :tab_name, :subtab_name
-  
+
   def login_required
     authorized? || access_denied
   end
-  
+
   def authorized?
     if RAILS_ENV['cucumber'] || RAILS_ENV['test']
       session[:identity_url] = 'test'
@@ -31,9 +31,9 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  
+
   protected
-  
+
     # Automatically respond with 404 for ActiveRecord::RecordNotFound
     def record_not_found
       render :file => File.join(RAILS_ROOT, 'public', '404.html'), :status => 404

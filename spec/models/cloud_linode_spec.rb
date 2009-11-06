@@ -17,12 +17,12 @@ describe CloudLinode do
     Linode.stub(:new).and_return(fake_linode)
     CloudLinode.create!(@valid_attributes)
   end
-  
+
   it "dosn't creates a new instance if not valid attributes" do
     Linode.stub!(:new).with(@valid_attributes[:api_key]).and_raise( Exception.new("test") )
     lambda {
       CloudLinode.create!(@valid_attributes)
     }.should raise_error(ActiveRecord::RecordInvalid)
   end
-  
+
 end
