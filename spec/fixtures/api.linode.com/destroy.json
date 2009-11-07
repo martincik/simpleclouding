@@ -1,0 +1,7 @@
+{
+"ERRORARRAY":[],
+"ACTION":"linode.delete",
+"DATA":{
+  "LinodeID":8204
+}
+}

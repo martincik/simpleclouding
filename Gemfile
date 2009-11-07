@@ -16,6 +16,7 @@ gem "rspec-rails", :only => :testing
 gem "webrat", :only => :testing
 gem "cucumber", :only => :testing
 gem "mwilden-metric_fu", :only => :testing
+gem "fakeweb", :only => :testing
 
 # Sources
 source "http://gems.github.com"

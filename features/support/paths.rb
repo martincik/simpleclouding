@@ -7,37 +7,37 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-    
+
     when /the homepage/
       '/'
-      
+
     when /the login page/
       '/login'
-    
+
     when /the OpenID authentication page/
       '/openid/create'
 
     when /the cloud listing page/
       clouds_path
-    
+
     when /the new cloud page/
       new_cloud_path
 
     when /the server listing page/
       servers_path
-    
+
     when /the new server page/
       new_server_path
-      
+
     when /^cloud show page for cloud "([^\"]*)"$/i
       cloud_aws_security_groups_path(Cloud.find_by_name($1))
-    
+
     when /^the security group listing page for cloud "([^\"]*)"$/i
       cloud_aws_security_groups_path(Cloud.find_by_name($1))
-    
+
     when /^the key pairs listing page for cloud "([^\"]*)"$/i
       cloud_aws_key_pairs_path(Cloud.find_by_name($1))
-    
+
     # Add more mappings here.
     # Here is a more fancy example:
     #

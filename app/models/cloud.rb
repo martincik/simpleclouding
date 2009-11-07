@@ -19,7 +19,7 @@ class Cloud < ActiveRecord::Base
   end
 
   def self.all_clouds_for_select
-    all.inject({}) {|cloud_map, cloud| cloud_map[cloud.name] = cloud.id; cloud_map }
+    all.inject({}) { |cloud_map, cloud| cloud_map[cloud.name] = cloud.id; cloud_map }
   end
 
 end
