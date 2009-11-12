@@ -1,0 +1,3 @@
+<RebootInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2009-08-15/">
+  <return>true</return>
+</RebootInstancesResponse>

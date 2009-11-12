@@ -15,9 +15,13 @@ module SC
           @@api ||= ::RightAws::Ec2.new(options[:access_key_id], options[:secret_access_key])
         end
 
+        def api
+          @@api
+        end
+
         # @return [Array] of Instance objects which is unified API for representing running instances on particular cloud.
         def list
-          @@api.describe_instances.map do |node|
+          api.describe_instances.map do |node|
             self.new(:instance_id => node[:aws_instance_id], :origin => node.to_hash)
           end
         end
@@ -29,7 +33,7 @@ module SC
         # @returns [Hash] - of attributes of new instance
         def create(options = {})
           ami_id = options.delete(:ami_id)
-          @@api.launch_instances(ami_id, options)
+          api.launch_instances(ami_id, options)
         end
 
       end
@@ -40,7 +44,7 @@ module SC
       # @exceptions -
       # @returns [Bool]
       def destroy(options = {})
-        @@api.terminate_instances(instance_id)
+        self.class.api.terminate_instances(instance_id)
       end
 
       # Reboots server instance
@@ -49,7 +53,7 @@ module SC
       # @exceptions -
       # @returns [Bool]
       def reboot(options = {})
-        @@api.reboot_instances(instance_id)
+        self.class.api.reboot_instances(instance_id)
       end
 
     end

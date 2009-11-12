@@ -13,9 +13,13 @@ module SC
           @@api = ::Linode.new(options)
         end
 
+        def api
+          @@api
+        end
+
         # @return [Array] of Instance objects which is unified API for representing running instances on particular cloud.
         def list
-          @@api.linode.list.map do |node|
+          api.linode.list.map do |node|
             self.new(:instance_id => node.linodeid, :origin => node.to_hash)
           end
         end
@@ -31,7 +35,7 @@ module SC
         # @exceptions - NOACCESS,CCFAILED,VALIDATION
         # @returns [Bool]
         def create(options = {})
-          @@api.linode.create(options)
+          api.linode.create(options)
         end
 
       end
@@ -45,7 +49,7 @@ module SC
       # @exceptions - NOTFOUND,LINODENOTEMPTY
       # @returns [Bool]
       def destroy(options = {})
-        @@api.linode.delete(options.merge(:LinodeID => instance_id))
+        self.class.api.linode.delete(options.merge(:LinodeID => instance_id))
       end
 
       # Reboots server instance
@@ -55,7 +59,7 @@ module SC
       # @exceptions - NOTFOUND
       # @returns [Bool]
       def reboot(options = {})
-        @@api.linode.reboot(options.merge(:LinodeID => instance_id))
+        self.class.api.linode.reboot(options.merge(:LinodeID => instance_id))
       end
 
     end
